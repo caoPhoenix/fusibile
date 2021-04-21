@@ -7,6 +7,7 @@ find_package(CUDA 6.0 REQUIRED ) # For Cuda Managed Memory and c++11
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(.)
 
+# Reference: https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
 # for gtx1080(ti) or p100
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-O3 --use_fast_math --ptxas-options=-v -std=c++11 --compiler-options -Wall -gencode arch=compute_60,code=sm_60)
 # for gtx2080(ti) or v100
